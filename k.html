@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>프로젝트 K: 리부트 가이드북</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;800&family=Nanum+Myeongjo:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --safe-area-inset-top: env(safe-area-inset-top);
+            --safe-area-inset-bottom: env(safe-area-inset-bottom);
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background-color: #111111;
+            color: #e5e5e5;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .serif {
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .chapter-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .chapter-number {
+            color: #60a5fa;
+            font-weight: 900;
+            opacity: 0.5;
+        }
+
+        .bad-case {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid #ef4444;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            color: #fca5a5;
+        }
+
+        .good-case {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid #10b981;
+            padding: 1rem;
+            color: #6ee7b7;
+        }
+
+        .concept-card {
+            background: #1a1a1a;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid #333;
+        }
+
+        svg {
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body class="max-w-4xl mx-auto p-6 md:p-12 selection:bg-blue-500/30">
+    <div id="root"></div>
+
+    <!-- React & Babel CDNs -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        /** @jsx React.createElement */
+        /** @jsxFrag React.Fragment */
+
+        const Icon = ({ name, size = 24, className = "" }) => {
+            const paths = {
+                'alert-triangle': <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3ZM12 9v4m0 4h.01" />,
+                'user': <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>,
+                'gift': <polyline points="20 12 20 22 4 22 4 12"/><rect width="20" height="5" x="2" y="7" rx="1"/><line x1="12" x2="12" y1="22" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>,
+                'shield-check': <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/>,
+                'eye': <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>,
+                'mic-2': <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/><path d="m15 13-3-3-3 3"/>,
+                'user-check': <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/>,
+                'x': <path d="M18 6 6 18"/><path d="m6 6 12 12"/>,
+                'check': <polyline points="20 6 9 17 4 12" />,
+                'arrow-right': <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>,
+                'arrow-down': <path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>,
+                'key': <path d="m21 2-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0 3 3L22 7l-3-3L15.5 7.5z" />
+            };
+
+            return (
+                <svg
+                    width={size}
+                    height={size}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={className}
+                >
+                    {paths[name] || null}
+                </svg>
+            );
+        };
+
+        const App = () => {
+            return (
+                <React.Fragment>
+                    {/* INTRO SECTION */}
+                    <header className="mb-16 text-center md:text-left border-b border-gray-800 pb-10">
+                        <div className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest text-blue-400 border border-blue-900 rounded-full bg-blue-900/20">프로젝트 K 리부트</div>
+                        <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
+                            본능을 지성으로 제어하는<br />
+                            <span className="text-gradient serif">남자의 품격</span>
+                        </h1>
+
+                        <div className="bg-[#1a1a1a] p-6 rounded-xl border border-red-900/30 mt-8 relative overflow-hidden">
+                            <div className="absolute top-0 left-0 w-1 h-full bg-red-600"></div>
+                            <h3 className="text-red-500 font-bold mb-2 flex items-center gap-2">
+                                <Icon name="alert-triangle" size={20} />
+                                문제 진단: 왜 케이는 '비호감'이었나?
+                            </h3>
+                            <p className="text-gray-300 text-sm md:text-base">
+                                솔직하게 말할게요. 케이의 가장 큰 문제는 <strong>"본질적으로 상대방을 대하는 태도가 좋지 않다는 겁니다."</strong><br />
+                                마치 배고픈 짐승이 "밥 줘"라고 소리치듯, 본인의 욕망(성욕, 과시욕)을 필터 없이 그대로 배설했어요.<br />
+                                상대방 입장에선 그게 '솔직함'이 아니라 <strong>'폭력'</strong>이나 <strong>'공포'</strong>로 느껴질 수밖에 없습니다.
+                            </p>
+                        </div>
+                    </header>
+
+                    {/* VISUAL DASHBOARD: 3 PILLARS */}
+                    <section className="mb-20">
+                        <h2 className="text-2xl font-bold text-white mb-6 text-center">리부트 3대 핵심 축</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div className="concept-card text-center group">
+                                <div className="w-12 h-12 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-4 border border-gray-700">
+                                    <Icon name="user" className="text-white" />
+                                </div>
+                                <h3 className="text-white font-bold mb-2">1. 하드웨어 교체</h3>
+                                <p className="text-sm text-gray-500">눈빛 · 말투 · 태도<br />불안한 신호를 제거하라</p>
+                            </div>
+                            <div className="concept-card text-center group">
+                                <div className="w-12 h-12 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-4 border border-gray-700">
+                                    <Icon name="gift" className="text-white" />
+                                </div>
+                                <h3 className="text-white font-bold mb-2">2. 의도의 포장</h3>
+                                <p className="text-sm text-gray-500">원초적 욕망을<br />사회적 언어로 번역하라</p>
+                            </div>
+                            <div className="concept-card text-center group">
+                                <div className="w-12 h-12 mx-auto bg-gray-800 rounded-full flex items-center justify-center mb-4 border border-gray-700">
+                                    <Icon name="shield-check" className="text-white" />
+                                </div>
+                                <h3 className="text-white font-bold mb-2">3. 안전거리 확보</h3>
+                                <p className="text-sm text-gray-500">배려와 존중으로<br />경계심을 해제하라</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* CHAPTER 1 */}
+                    <article className="mb-20 animate-fadeIn">
+                        <div className="chapter-title">
+                            <span className="chapter-number">01</span>
+                            하드웨어의 재건축: 눈빛, 말투, 태도
+                        </div>
+                        <p className="text-gray-400 mb-8">
+                            아무리 좋은 멘트도 그걸 전달하는 스피커(몸)가 고장 났으면 소음일 뿐입니다.
+                            케이는 지금 너무 급하고, 불안해 보입니다. '싸가지 없는' 태도는 사실 자신감 부족을 감추려는 발악처럼 보이죠.
+                        </p>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div className="bg-[#1a1a1a] p-5 rounded-lg border-t-2 border-blue-500">
+                                <h4 className="text-white font-bold mb-3 flex items-center gap-2"><Icon name="eye" size={16} className="text-blue-400" /> 눈빛</h4>
+                                <p className="text-sm text-gray-400">
+                                    눈을 피하지 마세요.
+                                    단, 상대를 뚫어지게 쳐다보는 '관음'이 아니라, 따뜻하게 <strong>'응시'</strong>해야 합니다.
+                                    눈동자가 흔들리면 신뢰도는 0이 됩니다.
+                                </p>
+                            </div>
+                            <div className="bg-[#1a1a1a] p-5 rounded-lg border-t-2 border-blue-500">
+                                <h4 className="text-white font-bold mb-3 flex items-center gap-2"><Icon name="mic-2" size={16} className="text-blue-400" /> 말투</h4>
+                                <p className="text-sm text-gray-400">
+                                    <strong>0.8배속</strong>의 법칙을 기억하세요.
+                                    말이 빠르고 톤이 높으면 경박해 보입니다.
+                                    숨을 깊게 들이마시고, 평소보다 천천히, 낮게 말하세요. 무게감은 속도에서 나옵니다.
+                                </p>
+                            </div>
+                            <div className="bg-[#1a1a1a] p-5 rounded-lg border-t-2 border-blue-500">
+                                <h4 className="text-white font-bold mb-3 flex items-center gap-2"><Icon name="user-check" size={16} className="text-blue-400" /> 태도</h4>
+                                <p className="text-sm text-gray-400">
+                                    <strong>싸가지 없는 태도 금지 (X).</strong><br />
+                                    무례함을 쿨함으로 착각하지 마세요.<br />
+                                    거절당해도 타격받지 않는 '진짜 여유'를 장착하세요.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                    {/* CHAPTER 2 */}
+                    <article className="mb-20 animate-fadeIn">
+                        <div className="chapter-title">
+                            <span className="chapter-number">02</span>
+                            지적 자본: 언어의 해상도를 높여라
+                        </div>
+                        <div className="flex flex-col md:flex-row gap-8 items-center">
+                            <div className="flex-1">
+                                <p className="text-gray-400 mb-4">
+                                    "존나 예쁘다", "몸매 죽인다"...<br />
+                                    이런 말밖에 못 하는 이유는, 내 감정을 표현할 다른 단어를 모르기 때문입니다.<br />
+                                    <strong>'저렴한 언어'는 사람을 저렴하게 만듭니다.</strong>
+                                </p>
+                                <ul className="space-y-3 text-sm text-gray-300">
+                                    <li className="flex items-center gap-2"><Icon name="x" size={16} className="text-red-500" /> <strong>금지어:</strong> 존나, 개-, 헐, 대박, 죽인다</li>
+                                    <li className="flex items-center gap-2"><Icon name="check" size={16} className="text-emerald-500" /> <strong>대체어:</strong> 우아하다, 인상 깊다, 분위기 있다, 절묘하다</li>
+                                </ul>
+                            </div>
+                            <div className="flex-1 w-full bg-[#222] p-6 rounded-xl border border-gray-700">
+                                <div className="text-center text-xs text-gray-500 mb-2">언어 해상도 비교</div>
+                                <div className="flex items-center justify-between gap-4">
+                                    <div className="flex-1 text-center opacity-50 blur-[1px]">
+                                        <div className="text-2xl mb-1">🤬</div>
+                                        <div className="text-red-400 font-bold">저해상도</div>
+                                        <div className="text-xs">"개쩐다"</div>
+                                    </div>
+                                    <Icon name="arrow-right" className="text-gray-600" />
+                                    <div className="flex-1 text-center">
+                                        <div className="text-2xl mb-1">🧐</div>
+                                        <div className="text-blue-400 font-bold">고해상도</div>
+                                        <div className="text-xs">"압도적이네요"</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    {/* CHAPTER 3 */}
+                    <article className="mb-20 animate-fadeIn">
+                        <div className="chapter-title">
+                            <span className="chapter-number">03</span>
+                            관계의 기술: 의도의 포장술
+                        </div>
+                        <p className="text-gray-400 mb-6">
+                            여자는 당신의 '날것의 욕망'을 두려워합니다.
+                            당신의 본심(욕망)을 상대가 납득할 수 있는 '명분'이라는 포장지에 싸서 건네야 합니다.
+                            이건 거짓말이 아니라 <strong>사회적 지능</strong>입니다.
+                        </p>
+
+                        <div className="bg-gray-900 p-6 rounded-xl border border-gray-800 mb-8 relative">
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-900 text-blue-300 px-3 py-1 rounded-full text-xs font-bold border border-blue-500">의도 번역 프로세스</div>
+                            <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center mt-2">
+                                <div className="p-4 bg-red-900/10 rounded-lg border border-red-900/30 w-full">
+                                    <div className="text-red-500 font-bold mb-1 uppercase text-xs">본능</div>
+                                    <div className="text-sm text-gray-400">"너 예쁘다. 번호 줘."</div>
+                                </div>
+                                <Icon name="arrow-right" className="text-gray-600 hidden md:block" />
+                                <Icon name="arrow-down" className="text-gray-600 md:hidden" />
+
+                                <div className="p-4 bg-gray-800 rounded-lg border border-gray-700 w-full">
+                                    <div className="text-blue-400 font-bold mb-1 uppercase text-xs">필터링</div>
+                                    <div className="text-[10px] text-gray-500 leading-tight">
+                                        1. 공포 제거 / 2. 가치 인정 / 3. 명분 제시
+                                    </div>
+                                </div>
+
+                                <Icon name="arrow-right" className="text-gray-600 hidden md:block" />
+                                <Icon name="arrow-down" className="text-gray-600 md:hidden" />
+
+                                <div className="p-4 bg-emerald-900/10 rounded-lg border border-emerald-900/30 w-full">
+                                    <div className="text-emerald-500 font-bold mb-1 uppercase text-xs">포장</div>
+                                    <div className="text-sm text-gray-400">"분위기가 너무 우아해서 놓치면 후회할 것 같았어요."</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="space-y-4">
+                            <div className="bad-case text-sm">
+                                <strong>❌ (나쁜 예):</strong> "술 먹으러 가자. 나가자."
+                            </div>
+                            <div className="good-case text-sm">
+                                <strong>⭕ (좋은 예):</strong> "여기 너무 시끄러워서... 좀 조용한 데 가서 우리 얘기에 집중하고 싶어."
+                            </div>
+                        </div>
+                    </article>
+
+                    {/* CHAPTER 4 */}
+                    <article className="mb-20 animate-fadeIn">
+                        <div className="chapter-title">
+                            <span className="chapter-number">04</span>
+                            위기 관리: 벽 허물기
+                        </div>
+                        <p className="text-gray-400 mb-6 text-sm md:text-base">
+                            상대가 "누구세요?", "뜬금없네요"라며 경계할 때, 상대를 안심시켜야 할 타이밍입니다.
+                        </p>
+
+                        <div className="bg-[#1a1a1a] p-6 rounded-xl border border-gray-800">
+                            <h4 className="text-white font-bold mb-4 flex items-center gap-2">
+                                <Icon name="key" size={20} className="text-yellow-500" />
+                                대화 수습 3단계 공식
+                            </h4>
+                            <div className="space-y-6">
+                                <div className="flex gap-4">
+                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center font-bold text-gray-500 border border-gray-600">1</div>
+                                    <div>
+                                        <h5 className="text-white font-bold text-sm">인정</h5>
+                                        <p className="text-xs text-gray-400"><span className="text-blue-400">"맞아요. 진짜 뜬금없죠."</span></p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4">
+                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center font-bold text-gray-500 border border-gray-600">2</div>
+                                    <div>
+                                        <h5 className="text-white font-bold text-sm">공감</h5>
+                                        <p className="text-xs text-gray-400"><span className="text-blue-400">"저라도 이상하게 봤을 거예요. 미안해요."</span></p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4">
+                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center font-bold text-gray-500 border border-gray-600">3</div>
+                                    <div>
+                                        <h5 className="text-white font-bold text-sm">명분</h5>
+                                        <p className="text-xs text-gray-400"><span className="text-blue-400">"제가 찾던 이상형에 너무 가까워서... 용기 냈습니다."</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <footer className="text-center pt-10 border-t border-gray-800">
+                        <h2 className="text-xl md:text-2xl font-bold text-white mb-4">케이는 짐승이 아닌 신사가 되어야 합니다.</h2>
+                        <p className="text-gray-500 text-xs md:text-sm max-w-2xl mx-auto mb-8">
+                            상대를 NPC 취급하지 마세요. 존중하고, 배려하고, 예의를 갖추세요.
+                        </p>
+                    </footer>
+                </React.Fragment>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+
+</html>
