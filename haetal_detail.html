@@ -1,0 +1,1503 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>해탈코스 | 여자의 본능을 설계하는 연애 알고리즘</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #050505;
+            color: #e5e7eb;
+            overflow-x: hidden;
+        }
+
+        /* Silver Gradient (Previously Gold) */
+        .gold-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #d1d5db 48%, #9ca3af 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Silver Background (Previously Gold) */
+        .gold-bg {
+            background: linear-gradient(135deg, #e5e7eb 0%, #9ca3af 100%);
+        }
+
+        /* Red Accent Gradient */
+        .red-gradient {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-red {
+            background: rgba(239, 68, 68, 0.05);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.1);
+        }
+
+        .section-padding {
+            padding: 100px 20px;
+        }
+
+        /* Carousel Custom CSS */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .dot.active {
+            background-color: #ef4444;
+            width: 24px;
+        }
+
+        /* Step Card Hover */
+        .step-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(239, 68, 68, 0.15);
+        }
+
+        /* Urgency Blink */
+        @keyframes urgency-pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+            }
+
+            50% {
+                opacity: 0.7;
+                box-shadow: 0 0 25px rgba(239, 68, 68, 0.6);
+            }
+        }
+
+        .urgency-badge {
+            animation: urgency-pulse 1.5s ease-in-out infinite;
+        }
+
+        /* Testimonial Card */
+        .testimonial-card {
+            border-left: 3px solid #ef4444;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========================================= -->
+    <!-- SECTION 1: HERO (AIDA: Attention / SB7: Character's Problem) -->
+    <!-- ========================================= -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black"></div>
+            <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80"
+                alt="클럽 라운지 야경" class="w-full h-full object-cover">
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl">
+            <!-- Urgency Badge -->
+            <div class="inline-block mb-6">
+                <span
+                    class="urgency-badge bg-red-600 text-white px-4 py-2 rounded-full text-sm font-bold tracking-wide">
+                    <i class="fa-solid fa-fire mr-2"></i>2월 기수 마감 D-7
+                </span>
+            </div>
+
+
+            <h2 class="text-xl md:text-2xl font-bold mb-4 tracking-widest text-gray-400">해탈코스</h2>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
+                "당신이 원하는 여자는<br>
+                <span class="gold-gradient">왜 매번 실패할까요?</span>"
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed max-w-2xl mx-auto">
+                <span class="text-red-500 font-bold">72시간</span> 안에 당신도 '<span class="text-white font-medium">최상위
+                    유혹자</span>'로 리셋됩니다.<br>
+                여자는 노력하는 남자가 아니라, <span class="text-red-500 font-bold">매력적인 남자</span>를 선택합니다.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact"
+                    class="gold-bg text-black px-10 py-5 rounded-full font-bold text-xl hover:scale-105 transition-transform inline-block shadow-lg shadow-yellow-900/30">
+                    <i class="fa-solid fa-bolt mr-2"></i>지금 바로 신청하기
+                </a>
+                <a href="#problem"
+                    class="border border-white/20 text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-white/5 transition inline-block">
+                    왜 나는 실패할까?
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fa-solid fa-chevron-down text-gray-500 text-2xl"></i>
+        </div>
+    </header>
+
+    <!-- ========================================= -->
+    <!-- SECTION 2: PROBLEM (AIDA: Interest / SB7: The Villain & Problems) -->
+    <!-- ========================================= -->
+    <section id="problem" class="section-padding bg-[#0f0f0f]">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-red-500 font-bold tracking-widest uppercase text-sm">THE REAL PROBLEM</span>
+                <h2 class="text-3xl md:text-5xl font-black mt-4 text-gray-100">
+                    당신이 매번 실패하는 <span class="text-red-500">진짜 이유</span>
+                </h2>
+                <p class="text-gray-500 mt-4 text-lg">이런 문제가 반복되지 않으신가요?</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <!-- External 1 -->
+                <div
+                    class="glass p-6 rounded-3xl text-center border border-white/5 hover:border-red-600/30 transition flex flex-col items-center min-h-[200px]">
+                    <i class="fa-solid fa-comment-slash text-3xl mb-4 text-red-500/70"></i>
+                    <h4 class="text-base font-bold text-gray-200 mb-2">읽씹 & 잠수</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">5분마다 카톡을 확인하지만<br>숫자 1은 지워지지 않습니다.</p>
+                </div>
+                <!-- External 2 -->
+                <div
+                    class="glass p-6 rounded-3xl text-center border border-white/5 hover:border-red-600/30 transition flex flex-col items-center min-h-[200px]">
+                    <i class="fa-solid fa-hand text-3xl mb-4 text-red-500/70"></i>
+                    <h4 class="text-base font-bold text-gray-200 mb-2">애프터 거절</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">"나중에 봐요", "바빠서요"<br>라는 말만 돌아옵니다.</p>
+                </div>
+                <!-- External 3 -->
+                <div
+                    class="glass p-6 rounded-3xl text-center border border-white/5 hover:border-red-600/30 transition flex flex-col items-center min-h-[200px]">
+                    <i class="fa-solid fa-user-slash text-3xl mb-4 text-red-500/70"></i>
+                    <h4 class="text-base font-bold text-gray-200 mb-2">"좋은 사람" 존</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">"오빠는 진짜 좋은 사람인데...<br>남자로는 안 보여요"</p>
+                </div>
+                <!-- External 4 -->
+                <div
+                    class="glass p-6 rounded-3xl text-center border border-white/5 hover:border-red-600/30 transition flex flex-col items-center min-h-[200px]">
+                    <i class="fa-solid fa-hand-holding-heart text-3xl mb-4 text-red-500/70"></i>
+                    <h4 class="text-base font-bold text-gray-200 mb-2">스킨십 거절</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">어깨에 손을 올리는 순간<br>"우리는 너무 이른거 같아"</p>
+                </div>
+            </div>
+
+            <div class="relative">
+
+                <div
+                    class="glass p-10 md:p-16 rounded-[40px] text-center border border-red-600/20 relative overflow-hidden">
+                    <div
+                        class="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-red-600/10 rounded-full blur-[100px]">
+                    </div>
+
+                    <div class="relative z-10">
+                        <p class="text-gray-400 text-lg mb-6">
+                            문제는 당신의 <span class="text-white font-medium">'진심'</span>이 아닙니다.
+                        </p>
+                        <h3 class="text-3xl md:text-5xl font-black leading-tight mb-8">
+                            노력의 <span class="text-red-500 underline decoration-4 underline-offset-8">방향</span>이<br>
+                            틀렸기 때문입니다.
+                        </h3>
+
+                        <div class="max-w-2xl mx-auto space-y-4 text-left mb-10">
+                            <div class="flex items-start gap-4 p-4 bg-red-950/20 rounded-2xl border border-red-900/30">
+                                <i class="fa-solid fa-xmark text-red-500 mt-1"></i>
+                                <p class="text-gray-300">"여자한테 <span class="text-red-400 font-bold">잘 보이려고</span>" 노력하면
+                                    할수록, 그녀는 당신을 <span class="text-red-400">더 하찮게</span> 봅니다.</p>
+                            </div>
+                            <div class="flex items-start gap-4 p-4 bg-red-950/20 rounded-2xl border border-red-900/30">
+                                <i class="fa-solid fa-xmark text-red-500 mt-1"></i>
+                                <p class="text-gray-300">"<span class="text-red-400 font-bold">착하게</span>" 행동하면 할수록, 그녀의
+                                    본능은 당신을 <span class="text-red-400">'연애 대상 밖'</span>으로 분류합니다.</p>
+                            </div>
+                            <div
+                                class="flex items-start gap-4 p-4 bg-neutral-900/20 rounded-2xl border border-red-600/30">
+                                <i class="fa-solid fa-check text-red-500 mt-1"></i>
+                                <p class="text-gray-200">여자는 <span class="text-red-400 font-bold">'노력하는 남자'</span>가
+                                    아니라, <span class="text-red-400 font-bold">'매력적인 남자'</span>를 선택합니다.</p>
+                            </div>
+                        </div>
+
+                        <!-- Final Emphasis -->
+                        <div class="pt-6 border-t border-white/10">
+                            <p class="text-xl md:text-2xl text-gray-300 leading-relaxed">
+                                여자는 당신이 <span class="text-red-400 font-bold">얼마나 노력했는지</span> 관심없습니다.<br>
+                                당신이 <span class="text-red-500 font-bold">얼마나 매력적인 사람인지</span>만 생각합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SECTION 3: FAILURE (SB7: The Stakes - What's at Risk) -->
+    <!-- ========================================= -->
+    <section class="section-padding bg-gradient-to-b from-[#0f0f0f] to-black relative overflow-hidden">
+        <div class="absolute inset-0 bg-red-900/5"></div>
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <span class="text-red-600 font-bold tracking-widest uppercase text-sm">IF YOU DON'T CHANGE</span>
+            <h2 class="text-3xl md:text-5xl font-black mt-4 mb-12 text-gray-100">
+                <span class="text-red-500">지금 변화하지 않으면</span><br>1년 뒤에도 당신은...
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="bg-red-950/20 p-6 rounded-3xl border border-red-900/30 flex flex-col items-center text-center min-h-[180px]">
+                    <i class="fa-solid fa-receipt text-red-500 text-3xl mb-4"></i>
+                    <p class="text-gray-300 text-sm leading-relaxed">주말마다 클럽과 라운지를 가지만<br><span
+                            class="text-red-400 font-bold">손에 남는 건 영수증</span>뿐입니다.</p>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="bg-red-950/20 p-6 rounded-3xl border border-red-900/30 flex flex-col items-center text-center min-h-[180px]">
+                    <i class="fa-solid fa-user-group text-red-500 text-3xl mb-4"></i>
+                    <p class="text-gray-300 text-sm leading-relaxed">"나는 왜 <span class="text-red-400 font-bold">쟤밖에 못
+                            만나지?</span>"<br>스스로 물으며 타협합니다.</p>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="bg-red-950/20 p-6 rounded-3xl border border-red-900/30 flex flex-col items-center text-center min-h-[180px]">
+                    <i class="fa-solid fa-bed text-red-500 text-3xl mb-4"></i>
+                    <p class="text-gray-300 text-sm leading-relaxed">자기 전 SNS에서 <span class="text-red-400 font-bold">그녀의
+                            새 남친</span><br>사진을 봅니다. 둘이 행복해 보입니다.</p>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="bg-red-950/20 p-6 rounded-3xl border border-red-900/30 flex flex-col items-center text-center min-h-[180px]">
+                    <i class="fa-solid fa-clock-rotate-left text-red-500 text-3xl mb-4"></i>
+                    <p class="text-gray-300 text-sm leading-relaxed">유튜브 연애 영상만 보다가<br><span
+                            class="text-red-400 font-bold">또 1년</span>이 지나갑니다.</p>
+                </div>
+            </div>
+
+            <p class="mt-16 text-2xl md:text-3xl font-bold text-gray-200">
+                "더 이상 <span class="text-red-500">'괜찮은 척'</span>하지 마십시오."
+            </p>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SECTION 4: GUIDE (AIDA: Desire / SB7: Meets a Guide) -->
+    <!-- ========================================= -->
+    <section class="section-padding bg-black">
+        <div class="max-w-2xl mx-auto text-center">
+            <span class="text-gray-400 font-bold tracking-widest uppercase text-sm">MEET YOUR GUIDE</span>
+
+            <!-- Intro Poetry -->
+            <div class="mt-12 mb-12 space-y-4">
+                <p class="text-2xl md:text-3xl text-gray-400">안녕하세요</p>
+
+                <div class="text-xl md:text-2xl text-gray-300 space-y-2 py-4">
+                    <p>여자의 카톡 때문에 <span class="text-red-400 font-medium">힘들어</span>하고</p>
+                    <p>여자랑 잘 안되서 <span class="text-red-400 font-medium">무너지고</span></p>
+                    <p>그래도 여자 때문에 <span class="text-red-500 font-medium">행복해</span>하는</p>
+                </div>
+
+                <p class="text-2xl md:text-3xl text-white font-bold pt-4">여러분</p>
+            </div>
+
+            <h2 class="text-2xl md:text-4xl font-bold mb-20 leading-tight text-gray-100">
+                반갑습니다.<br>
+                <span class="gold-gradient text-3xl md:text-5xl font-black mt-4 block">프레딕 & 노바</span>
+            </h2>
+
+            <!-- Divider -->
+            <div class="w-24 h-px bg-gradient-to-r from-transparent via-gray-500/50 to-transparent mx-auto mb-16">
+            </div>
+
+            <!-- Misconception -->
+            <div class="mb-16 space-y-4">
+                <p class="text-xl md:text-2xl text-gray-400 leading-relaxed">
+                    사람들은 생각합니다.
+                </p>
+                <p class="text-2xl md:text-3xl text-gray-300 leading-relaxed">
+                    외모가 좋아야만, 타고나야만<br>
+                    이성에게 선택받는다고.
+                </p>
+            </div>
+
+            <!-- Big Statement -->
+            <p class="text-5xl md:text-7xl font-black text-white mb-16">
+                틀렸습니다.
+            </p>
+
+            <!-- Mechanism -->
+            <div class="mb-16 space-y-4">
+                <p class="text-2xl md:text-3xl text-red-500 font-bold">
+                    유혹은 메커니즘입니다.
+                </p>
+                <p class="text-lg md:text-xl text-gray-300">
+                    배우면 됩니다. 연습하면 됩니다. 적용하면 됩니다.
+                </p>
+                <p class="text-base text-gray-500">
+                    우리가 살아온 삶의 궤적이 그것을 증명합니다.
+                </p>
+            </div>
+
+            <!-- Personal Story -->
+            <div class="bg-gray-800/60 rounded-2xl p-6 mb-16 max-w-xl mx-auto border border-gray-700/50">
+                <p class="text-sm md:text-base text-gray-400 leading-relaxed text-left">
+                    저희 또한 유혹의 원리를 깨닫기 전까지는 타고난 사람만 할 수 있다고 믿었습니다.
+                    그런 저희가 매력적이고 이성에게 선택받는 사람이 되기까지의 모든 여정,
+                    그리고 <span class="text-red-400 font-medium">수천 건의 상담을 통해 검증된 데이터</span>를 모두 이 강의에 담았습니다.
+                </p>
+            </div>
+
+            <!-- Imagination -->
+            <div class="mb-16 space-y-4">
+                <p class="text-xl md:text-2xl text-gray-200">
+                    그녀가 <span class="text-red-500 font-medium">먼저 연락</span>하고
+                </p>
+                <p class="text-xl md:text-2xl text-gray-200">
+                    그녀가 <span class="text-red-500 font-medium">먼저 다가오고</span>
+                </p>
+                <p class="text-xl md:text-2xl text-gray-200">
+                    그녀가 <span class="text-red-500 font-medium">당신을 선택</span>하는 순간을 상상해 보세요.
+                </p>
+            </div>
+
+            <!-- Testimonial Carousel -->
+            <div class="mb-16">
+                <p class="text-red-500 font-bold text-sm mb-2 uppercase tracking-widest">REAL RESULTS</p>
+                <p class="text-gray-400 text-sm mb-8">해탈코스를 듣고 변화한 수강생들</p>
+
+                <!-- Carousel Container -->
+                <div class="relative max-w-md mx-auto">
+                    <!-- Carousel Track -->
+                    <div id="testimonialCarousel"
+                        class="overflow-hidden rounded-2xl border border-gray-700/50 bg-black">
+                        <div id="carouselTrack" class="flex transition-transform duration-300 ease-in-out">
+                            <div class="flex-shrink-0 w-full h-[600px] bg-black flex items-center justify-center">
+                                <img src="images/testimonial_1.png" alt="수강생 후기 1"
+                                    class="max-w-full max-h-full object-contain rounded-xl">
+                            </div>
+                            <div class="flex-shrink-0 w-full h-[600px] bg-black flex items-center justify-center">
+                                <img src="images/testimonial_2.png" alt="수강생 후기 2"
+                                    class="max-w-full max-h-full object-contain rounded-xl">
+                            </div>
+                            <div class="flex-shrink-0 w-full h-[600px] bg-black flex items-center justify-center">
+                                <img src="images/testimonial_3.png" alt="수강생 후기 3"
+                                    class="max-w-full max-h-full object-contain rounded-xl">
+                            </div>
+                            <div class="flex-shrink-0 w-full h-[600px] bg-black flex items-center justify-center">
+                                <img src="images/testimonial_4.png" alt="수강생 후기 4"
+                                    class="max-w-full max-h-full object-contain rounded-xl">
+                            </div>
+                            <div class="flex-shrink-0 w-full h-[600px] bg-black flex items-center justify-center">
+                                <img src="images/testimonial_5.png" alt="수강생 후기 5"
+                                    class="max-w-full max-h-full object-contain rounded-xl">
+                            </div>
+                            <div class="flex-shrink-0 w-full h-[600px] bg-black flex items-center justify-center">
+                                <img src="images/testimonial_6.png" alt="수강생 후기 6"
+                                    class="max-w-full max-h-full object-contain rounded-xl">
+                            </div>
+                            <div class="flex-shrink-0 w-full h-[600px] bg-black flex items-center justify-center">
+                                <img src="images/testimonial_7.png" alt="수강생 후기 7"
+                                    class="max-w-full max-h-full object-contain rounded-xl">
+                            </div>
+                            <div class="flex-shrink-0 w-full h-[600px] bg-black flex items-center justify-center">
+                                <img src="images/testimonial_8.png" alt="수강생 후기 8"
+                                    class="max-w-full max-h-full object-contain rounded-xl">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <button id="prevBtn"
+                        class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 rounded-full glass border border-gray-600 flex items-center justify-center text-white hover:border-red-500 transition">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button id="nextBtn"
+                        class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 rounded-full glass border border-gray-600 flex items-center justify-center text-white hover:border-red-500 transition">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <!-- Dots -->
+                    <div class="flex justify-center gap-2 mt-4">
+                        <button class="carousel-dot w-2 h-2 rounded-full bg-red-500" data-index="0"></button>
+                        <button class="carousel-dot w-2 h-2 rounded-full bg-gray-600" data-index="1"></button>
+                        <button class="carousel-dot w-2 h-2 rounded-full bg-gray-600" data-index="2"></button>
+                        <button class="carousel-dot w-2 h-2 rounded-full bg-gray-600" data-index="3"></button>
+                        <button class="carousel-dot w-2 h-2 rounded-full bg-gray-600" data-index="4"></button>
+                        <button class="carousel-dot w-2 h-2 rounded-full bg-gray-600" data-index="5"></button>
+                        <button class="carousel-dot w-2 h-2 rounded-full bg-gray-600" data-index="6"></button>
+                        <button class="carousel-dot w-2 h-2 rounded-full bg-gray-600" data-index="7"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="w-24 h-px bg-gradient-to-r from-transparent via-gray-500/50 to-transparent mx-auto mb-16">
+            </div>
+
+            <!-- Stats -->
+            <div class="flex flex-col sm:flex-row justify-center gap-8 mb-16">
+                <div class="flex items-center justify-center gap-4">
+                    <span class="w-14 h-14 rounded-full gold-bg flex items-center justify-center text-black text-lg">
+                        <i class="fa-solid fa-database"></i>
+                    </span>
+                    <div class="text-left">
+                        <span class="font-bold text-white text-xl">1,000+</span>
+                        <p class="text-sm text-gray-400">상담 데이터</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center gap-4">
+                    <span class="w-14 h-14 rounded-full gold-bg flex items-center justify-center text-black text-lg">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </span>
+                    <div class="text-left">
+                        <span class="font-bold text-white text-xl">300+</span>
+                        <p class="text-sm text-gray-400">직접 가르친 경험</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center gap-4">
+                    <span class="w-14 h-14 rounded-full gold-bg flex items-center justify-center text-black text-lg">
+                        <i class="fa-solid fa-crown"></i>
+                    </span>
+                    <div class="text-left">
+                        <span class="font-bold text-white text-xl">최상위 유혹자들</span>
+                        <p class="text-sm text-gray-400">과의 경험</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Box -->
+            <div class="glass p-10 rounded-3xl border border-red-600/30">
+                <p class="text-base text-gray-400 mb-4">
+                    따라하면 <span class="text-red-500 font-bold">결과가 나오는</span> 강의
+                </p>
+                <p class="text-2xl md:text-3xl text-white font-bold mb-3">
+                    72시간 안에 최상위 유혹자로 거듭나세요.
+                </p>
+                <p class="text-lg text-red-500 font-medium">
+                    우리가 함께합니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SECTION 5: THE PLAN (SB7: Gives Them a Plan) -->
+    <!-- ========================================= -->
+    <section class="section-padding bg-[#0f0f0f]">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="gold-bg text-black px-4 py-1 rounded text-sm font-bold inline-block">THE PLAN</span>
+            <h2 class="text-3xl md:text-5xl font-black mt-4 mb-6 text-gray-100">
+                72시간 <span class="gold-gradient">집중 트레이닝</span>
+            </h2>
+            <div class="mb-8">
+                <p class="text-red-500 font-bold text-lg mb-1">실전주의 프로젝트</p>
+                <p class="text-gray-300">최고등급 트레이너(<span class="text-white font-bold">프레딕 & 노바</span>) 2명과 함께하는 도제식 수업
+                </p>
+            </div>
+            <p class="text-gray-400 text-lg mb-4 max-w-2xl mx-auto">
+                이론만으로는 변하지 않습니다. 실전에서 부딪히고, 피드백 받고, 다시 도전합니다.
+            </p>
+
+            <!-- Compelling Tagline -->
+            <div class="glass p-6 rounded-2xl max-w-3xl mx-auto mb-10 border border-red-600/30">
+                <p class="text-xl md:text-2xl font-bold text-white mb-4">
+                    해탈코스는 <span class="text-red-500">3일 동안</span> 이성과의 관계에서<br class="hidden md:inline">
+                    <span class="gold-gradient">모든 것</span>을 경험하고 학습합니다.
+                </p>
+                <div class="flex flex-wrap justify-center gap-3 mt-4">
+                    <span class="bg-white/10 text-gray-300 px-4 py-2 rounded-full text-sm font-medium">
+                        <i class="fa-solid fa-champagne-glasses text-red-400 mr-2"></i>소셜 파티
+                    </span>
+                    <span class="bg-white/10 text-gray-300 px-4 py-2 rounded-full text-sm font-medium">
+                        <i class="fa-solid fa-moon text-red-400 mr-2"></i>나이트 게임
+                    </span>
+                    <span class="bg-white/10 text-gray-300 px-4 py-2 rounded-full text-sm font-medium">
+                        <i class="fa-solid fa-person-walking text-red-400 mr-2"></i>어프로치
+                    </span>
+                    <span class="bg-white/10 text-gray-300 px-4 py-2 rounded-full text-sm font-medium">
+                        <i class="fa-solid fa-bed text-red-400 mr-2"></i>방중술
+                    </span>
+                    <span class="bg-white/10 text-gray-300 px-4 py-2 rounded-full text-sm font-medium">
+                        <i class="fa-solid fa-heart text-red-400 mr-2"></i>데이트
+                    </span>
+                </div>
+            </div>
+
+            <!-- Timeline Badge -->
+            <div class="flex flex-wrap justify-center gap-4 mb-16">
+                <span class="glass px-4 py-2 rounded-full text-sm text-gray-300 border border-white/10">
+                    <i class="fa-solid fa-calendar-check text-red-500 mr-2"></i>PRE-COURSE
+                </span>
+                <span class="glass px-4 py-2 rounded-full text-sm text-gray-300 border border-white/10">
+                    <i class="fa-solid fa-moon text-red-500 mr-2"></i>DAY 1 금요일
+                </span>
+                <span class="glass px-4 py-2 rounded-full text-sm text-gray-300 border border-white/10">
+                    <i class="fa-solid fa-fire text-red-500 mr-2"></i>DAY 2 토요일
+                </span>
+                <span class="glass px-4 py-2 rounded-full text-sm text-gray-300 border border-white/10">
+                    <i class="fa-solid fa-flag-checkered text-red-500 mr-2"></i>DAY 3 일요일
+                </span>
+                <span class="glass px-4 py-2 rounded-full text-sm text-gray-300 border border-white/10">
+                    <i class="fa-solid fa-headset text-red-500 mr-2"></i>3개월 팔로업
+                </span>
+            </div>
+
+            <!-- Detailed Curriculum Accordion -->
+            <div class="max-w-3xl mx-auto text-left">
+
+                <!-- Stats Banner -->
+                <div
+                    class="glass p-4 rounded-2xl mb-8 flex flex-wrap justify-center gap-6 text-center border border-white/10">
+                    <div>
+                        <p class="text-2xl font-black text-white">3<span class="text-red-500">일+</span></p>
+                        <p class="text-xs text-gray-500">총 교육 시간</p>
+                    </div>
+                    <div class="w-px bg-gray-700"></div>
+                    <div>
+                        <p class="text-2xl font-black text-white">25<span class="text-red-500">+</span></p>
+                        <p class="text-xs text-gray-500">커리큘럼 모듈</p>
+                    </div>
+                    <div class="w-px bg-gray-700"></div>
+                    <div>
+                        <p class="text-2xl font-black text-white">8<span class="text-red-500">회</span></p>
+                        <p class="text-xs text-gray-500">실전 투입</p>
+                    </div>
+                    <div class="w-px bg-gray-700"></div>
+                    <div>
+                        <p class="text-2xl font-black text-white">90<span class="text-red-500">일</span></p>
+                        <p class="text-xs text-gray-500">사후 관리</p>
+                    </div>
+                </div>
+
+                <!-- PRE-COURSE -->
+                <details class="group mb-4" open>
+                    <summary
+                        class="cursor-pointer glass p-6 rounded-2xl flex items-center justify-between hover:bg-white/5 transition list-none border border-white/5">
+                        <div class="flex items-center gap-4">
+                            <span
+                                class="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center text-white font-bold text-sm">
+                                <i class="fa-solid fa-laptop"></i>
+                            </span>
+                            <div>
+                                <p class="font-bold text-white text-lg">PRE-COURSE <span
+                                        class="text-gray-500 font-normal text-sm ml-2">4개 모듈</span></p>
+                                <p class="text-gray-500 text-sm">수업 1주일 전 | 온라인 사전 교육</p>
+                            </div>
+                        </div>
+                        <i
+                            class="fa-solid fa-chevron-down text-gray-500 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="mt-3 ml-16 space-y-3 text-sm">
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-gray-500">
+                            <i class="fa-solid fa-comments text-red-500"></i>
+                            <div>
+                                <p class="text-white font-medium">오픈톡방 OT & 준비 과정 안내</p>
+                                <p class="text-xs text-gray-500">수업 전 집중 공지 | 실시간 Q&A</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-gray-500">
+                            <i class="fa-solid fa-clipboard-question text-red-500"></i>
+                            <div>
+                                <p class="text-white font-medium">자가 진단 테스트: 현재 레벨 측정</p>
+                                <p class="text-xs text-gray-500">연애 성향 분석 | 강점/약점 파악</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-gray-500">
+                            <i class="fa-solid fa-book text-red-500"></i>
+                            <div>
+                                <p class="text-white font-medium">사전 과제: 마인드셋 워크북</p>
+                                <p class="text-xs text-gray-500">PDF 20페이지 | 자기 분석 과제</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-gray-500">
+                            <i class="fa-solid fa-list-check text-red-500"></i>
+                            <div>
+                                <p class="text-white font-medium">그루밍 체크리스트 & 준비물 안내</p>
+                                <p class="text-xs text-gray-500">헤어/패션/향수 가이드라인</p>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- DAY 1: 금요일 -->
+                <details class="group mb-4">
+                    <summary
+                        class="cursor-pointer glass p-6 rounded-2xl flex items-center justify-between hover:bg-white/5 transition list-none border border-white/5">
+                        <div class="flex items-center gap-4">
+                            <span
+                                class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-white font-bold text-sm">D1</span>
+                            <div>
+                                <p class="font-bold text-white text-lg">DAY 1. 소셜 게임의 밤 <span
+                                        class="text-gray-500 font-normal text-sm ml-2">7개 모듈</span></p>
+                                <p class="text-gray-500 text-sm">금요일 저녁 7시 ~ | 첫 번째 실전 투입</p>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-red-500/20 text-red-400 px-3 py-1 rounded-full mr-4">LIVE</span>
+                        <i
+                            class="fa-solid fa-chevron-down text-gray-500 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="mt-3 ml-16 space-y-3 text-sm">
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-blue-500">
+                            <i class="fa-solid fa-shirt text-blue-400"></i>
+                            <div>
+                                <p class="text-white font-medium">그루밍 최종 점검</p>
+                                <p class="text-xs text-gray-500">헤어 / 피부 / 향수 / 패션 피드백</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-blue-500">
+                            <i class="fa-solid fa-bullseye text-blue-400"></i>
+                            <div>
+                                <p class="text-white font-medium">미션 브리핑: 오늘의 목표 설정</p>
+                                <p class="text-xs text-gray-500">개인별 도전 과제 부여</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-red-950/30 rounded-xl border-l-2 border-red-500">
+                            <i class="fa-solid fa-champagne-glasses text-red-400"></i>
+                            <div>
+                                <p class="text-white font-medium">소셜 파티 실전 투입</p>
+                                <p class="text-xs text-gray-500">🔴 LIVE 실전 | 파티 현장 어프로치</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-blue-500">
+                            <i class="fa-solid fa-rotate text-blue-400"></i>
+                            <div>
+                                <p class="text-white font-medium">실시간 피드백 루프</p>
+                                <p class="text-xs text-gray-500">현장에서 즉시 교정 → 재시도</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-blue-500">
+                            <i class="fa-solid fa-comments text-blue-400"></i>
+                            <div>
+                                <p class="text-white font-medium">이론: 스몰토크 프레임워크</p>
+                                <p class="text-xs text-gray-500">"3초 안에 관심 끄는 오프너" 공식</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-blue-500">
+                            <i class="fa-solid fa-crown text-blue-400"></i>
+                            <div>
+                                <p class="text-white font-medium">이론: 소셜 포지셔닝 전략</p>
+                                <p class="text-xs text-gray-500">"왕처럼 서있는 법" - 공간 지배 기술</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-blue-500">
+                            <i class="fa-solid fa-bed text-blue-400"></i>
+                            <div>
+                                <p class="text-white font-medium">DAY 1 디브리핑 & 취침</p>
+                                <p class="text-xs text-gray-500">개인별 피드백 리포트 제공</p>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- DAY 2: 토요일 -->
+                <details class="group mb-4">
+                    <summary
+                        class="cursor-pointer glass p-6 rounded-2xl flex items-center justify-between hover:bg-white/5 transition list-none border border-red-600/30">
+                        <div class="flex items-center gap-4">
+                            <span
+                                class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white font-bold text-sm">D2</span>
+                            <div>
+                                <p class="font-bold text-white text-lg">DAY 2. 자의식 해체 & 나이트 게임 <span
+                                        class="text-gray-500 font-normal text-sm ml-2">12개 모듈</span></p>
+                                <p class="text-gray-500 text-sm">토요일 종일 | 핵심 이론 + 나이트 실전</p>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-red-500 text-white px-3 py-1 rounded-full mr-4">CORE</span>
+                        <i
+                            class="fa-solid fa-chevron-down text-gray-500 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="mt-3 ml-16 space-y-3 text-sm">
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-red-500">
+                            <i class="fa-solid fa-door-open text-red-400"></i>
+                            <div>
+                                <p class="text-white font-medium">사무실 집합 & 컨디션 체크</p>
+                                <p class="text-xs text-gray-500">오전 10시 | 에너지 레벨 점검</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-red-500">
+                            <i class="fa-solid fa-bed text-red-400"></i>
+                            <div>
+                                <p class="text-white font-medium">방중술 마스터클래스</p>
+                                <p class="text-xs text-gray-500">클로징 환경 설계 | "집으로 데려오는 동선"</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-red-500">
+                            <i class="fa-solid fa-hand text-red-400"></i>
+                            <div>
+                                <p class="text-white font-medium">어프로치 이론: 3-Second Rule</p>
+                                <p class="text-xs text-gray-500">망설임 제거 | "생각하기 전에 다가가라"</p>
+                            </div>
+                        </div>
+
+                        <!-- 자의식 해체 Highlight Box - EXPANDED -->
+                        <div
+                            class="p-5 bg-gradient-to-r from-red-950/40 to-transparent rounded-2xl border border-red-600/30 mt-4 mb-4">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center">
+                                    <i class="fa-solid fa-brain text-red-500"></i>
+                                </span>
+                                <div>
+                                    <p class="text-red-400 font-bold text-sm uppercase tracking-wider">CORE MODULE</p>
+                                    <p class="text-white font-bold text-lg">자의식 해체 집중 수업</p>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs mb-4">
+                                <div class="flex items-center gap-2 text-gray-300 bg-black/30 p-3 rounded-lg">
+                                    <i class="fa-solid fa-masks-theater text-red-400"></i>
+                                    <span>페르소나 스위칭 훈련</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-300 bg-black/30 p-3 rounded-lg">
+                                    <i class="fa-solid fa-face-angry text-red-400"></i>
+                                    <span>분노형 페르소나: "냉철한 지배자"</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-300 bg-black/30 p-3 rounded-lg">
+                                    <i class="fa-solid fa-face-smile-wink text-red-400"></i>
+                                    <span>능글형 페르소나: "장난기 있는 남자"</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-300 bg-black/30 p-3 rounded-lg">
+                                    <i class="fa-solid fa-face-meh text-red-400"></i>
+                                    <span>냉철형 페르소나: "무심한 관찰자"</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-300 bg-black/30 p-3 rounded-lg">
+                                    <i class="fa-solid fa-id-card text-red-400"></i>
+                                    <span>자기 소개 리디자인: "30초 임팩트"</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-300 bg-black/30 p-3 rounded-lg">
+                                    <i class="fa-solid fa-heart-crack text-red-400"></i>
+                                    <span>결핍 에너지 완전 제거</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-300 bg-black/30 p-3 rounded-lg">
+                                    <i class="fa-solid fa-scale-balanced text-red-400"></i>
+                                    <span>텐션 조절: Push & Pull 설계</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-300 bg-black/30 p-3 rounded-lg">
+                                    <i class="fa-solid fa-chess-king text-red-400"></i>
+                                    <span>나른한 오만함 장착 실습</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-300 bg-black/30 p-3 rounded-lg">
+                                    <i class="fa-solid fa-shield-halved text-red-400"></i>
+                                    <span>프레임 장악: "대화의 주도권"</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-300 bg-black/30 p-3 rounded-lg">
+                                    <i class="fa-solid fa-user-ninja text-red-400"></i>
+                                    <span>반응 종속 탈피: "그녀의 반응에 흔들리지 않는 법"</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-300 bg-black/30 p-3 rounded-lg">
+                                    <i class="fa-solid fa-fire-flame-curved text-red-400"></i>
+                                    <span>거절 내성 강화: "No를 연료로"</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-300 bg-black/30 p-3 rounded-lg">
+                                    <i class="fa-solid fa-eye text-red-400"></i>
+                                    <span>비언어 신호 해독: IOI/IOD 판별</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-500 text-xs text-center">⚠️ 이 모듈은 해탈코스의 핵심입니다. 당신의 마인드셋을 완전히 재설계합니다.</p>
+                        </div>
+
+                        <div class="flex items-center gap-3 p-4 bg-red-950/30 rounded-xl border-l-2 border-red-500">
+                            <i class="fa-solid fa-person-walking text-red-400"></i>
+                            <div>
+                                <p class="text-white font-medium">어프로치 실전 #1: 데이게임</p>
+                                <p class="text-xs text-gray-500">🔴 LIVE | 거리/카페/쇼핑몰 현장 투입</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-red-500">
+                            <i class="fa-solid fa-utensils text-red-400"></i>
+                            <div>
+                                <p class="text-white font-medium">실전 복기 & 저녁 식사</p>
+                                <p class="text-xs text-gray-500">녹화 영상 분석 | 개선점 도출</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-red-500">
+                            <i class="fa-solid fa-moon text-red-400"></i>
+                            <div>
+                                <p class="text-white font-medium">나이트 게임 이론: 클럽/바 전략</p>
+                                <p class="text-xs text-gray-500">"시끄러운 환경에서 연결 만들기"</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-red-950/30 rounded-xl border-l-2 border-red-500">
+                            <i class="fa-solid fa-martini-glass text-red-400"></i>
+                            <div>
+                                <p class="text-white font-medium">나이트 게임 실전 진행</p>
+                                <p class="text-xs text-gray-500">🔴 LIVE | 클럽/바 현장 투입</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-red-500">
+                            <i class="fa-solid fa-clipboard-check text-red-400"></i>
+                            <div>
+                                <p class="text-white font-medium">나이트 게임 피드백</p>
+                                <p class="text-xs text-gray-500">영상 분석 | "왜 안됐는지" 정확한 진단</p>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- DAY 3: 일요일 -->
+                <details class="group mb-4">
+                    <summary
+                        class="cursor-pointer glass p-6 rounded-2xl flex items-center justify-between hover:bg-white/5 transition list-none border border-white/5">
+                        <div class="flex items-center gap-4">
+                            <span
+                                class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center text-white font-bold text-sm">D3</span>
+                            <div>
+                                <p class="font-bold text-white text-lg">DAY 3. 폰게임 & 클로징 마스터 <span
+                                        class="text-gray-500 font-normal text-sm ml-2">10개 모듈</span></p>
+                                <p class="text-gray-500 text-sm">일요일 종일 | 번호 → 만남 → 클로징까지</p>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-green-500/20 text-green-400 px-3 py-1 rounded-full mr-4">FINAL</span>
+                        <i
+                            class="fa-solid fa-chevron-down text-gray-500 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="mt-3 ml-16 space-y-3 text-sm">
+                        <div class="flex items-center gap-3 p-4 bg-red-950/30 rounded-xl border-l-2 border-green-500">
+                            <i class="fa-solid fa-user-slash text-green-400"></i>
+                            <div>
+                                <p class="text-white font-medium">노그루밍 어프로치 챌린지</p>
+                                <p class="text-xs text-gray-500">🔴 LIVE | "외모가 아닌 에너지로 승부"</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-green-500">
+                            <i class="fa-solid fa-map-location-dot text-green-400"></i>
+                            <div>
+                                <p class="text-white font-medium">필드별 특성 & 최적 전략</p>
+                                <p class="text-xs text-gray-500">거리 / 카페 / 클럽 / 헬스장 / 서점</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-green-500">
+                            <i class="fa-solid fa-route text-green-400"></i>
+                            <div>
+                                <p class="text-white font-medium">데이트 동선 설계</p>
+                                <p class="text-xs text-gray-500">"3시간 안에 친밀감 최대화" 루트</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-red-950/30 rounded-xl border-l-2 border-green-500">
+                            <i class="fa-solid fa-users text-green-400"></i>
+                            <div>
+                                <p class="text-white font-medium">애프터 시뮬레이션</p>
+                                <p class="text-xs text-gray-500">🔴 실습 | 실제 상황 역할극</p>
+                            </div>
+                        </div>
+
+                        <!-- 폰게임 Highlight Box -->
+                        <div
+                            class="p-5 bg-gradient-to-r from-green-950/40 to-transparent rounded-2xl border border-green-600/30 mt-4 mb-4">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
+                                    <i class="fa-solid fa-mobile-screen text-green-500"></i>
+                                </span>
+                                <div>
+                                    <p class="text-green-400 font-bold text-sm uppercase tracking-wider">PHONE GAME
+                                        MODULE</p>
+                                    <p class="text-white font-bold text-lg">폰게임 마스터클래스</p>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+                                <div class="flex items-center gap-2 text-gray-300 bg-black/30 p-3 rounded-lg">
+                                    <i class="fa-solid fa-clock text-green-400"></i>
+                                    <span>답장 타이밍 설계: "언제 보내야 하는가"</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-300 bg-black/30 p-3 rounded-lg">
+                                    <i class="fa-solid fa-message text-green-400"></i>
+                                    <span>오프너 템플릿: "첫 메시지 공식"</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-300 bg-black/30 p-3 rounded-lg">
+                                    <i class="fa-solid fa-face-laugh text-green-400"></i>
+                                    <span>유머 삽입 기술: "웃기지 않으면 끝"</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-300 bg-black/30 p-3 rounded-lg">
+                                    <i class="fa-solid fa-ban text-green-400"></i>
+                                    <span>읽씹 방지 전략: "절대 무시당하지 않는 법"</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-300 bg-black/30 p-3 rounded-lg">
+                                    <i class="fa-solid fa-calendar-check text-green-400"></i>
+                                    <span>약속 잡기 공식: "거절 불가능한 제안"</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-300 bg-black/30 p-3 rounded-lg">
+                                    <i class="fa-solid fa-triangle-exclamation text-green-400"></i>
+                                    <span>위기 상황 대응: "관심 식었을 때"</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 p-4 bg-red-950/30 rounded-xl border-l-2 border-green-500">
+                            <i class="fa-solid fa-comment-sms text-green-400"></i>
+                            <div>
+                                <p class="text-white font-medium">폰게임 실전: 개별 피드백</p>
+                                <p class="text-xs text-gray-500">🔴 실습 | 실제 대화 작성 & 교정</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-red-950/30 rounded-xl border-l-2 border-green-500">
+                            <i class="fa-solid fa-phone text-green-400"></i>
+                            <div>
+                                <p class="text-white font-medium">콜게임 실전</p>
+                                <p class="text-xs text-gray-500">🔴 실습 | "목소리로 약속 잡기"</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-green-500">
+                            <i class="fa-solid fa-graduation-cap text-green-400"></i>
+                            <div>
+                                <p class="text-white font-medium">졸업식: 개인별 최종 피드백</p>
+                                <p class="text-xs text-gray-500">강점/약점 리포트 | 90일 액션 플랜</p>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- POST-COURSE -->
+                <details class="group mb-4">
+                    <summary
+                        class="cursor-pointer glass p-6 rounded-2xl flex items-center justify-between hover:bg-white/5 transition list-none border border-white/5">
+                        <div class="flex items-center gap-4">
+                            <span
+                                class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center text-white font-bold text-sm">
+                                <i class="fa-solid fa-headset"></i>
+                            </span>
+                            <div>
+                                <p class="font-bold text-white text-lg">POST-COURSE SUPPORT <span
+                                        class="text-gray-500 font-normal text-sm ml-2">5개 혜택</span></p>
+                                <p class="text-gray-500 text-sm">수업 후 3개월 | 지속적 성장 지원</p>
+                            </div>
+                        </div>
+                        <span class="text-xs bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full mr-4">BONUS</span>
+                        <i
+                            class="fa-solid fa-chevron-down text-gray-500 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="mt-3 ml-16 space-y-3 text-sm">
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-purple-500">
+                            <i class="fa-solid fa-message text-purple-400"></i>
+                            <div>
+                                <p class="text-white font-medium">온라인 Q&A 무제한</p>
+                                <p class="text-xs text-gray-500">3개월간 실시간 질의응답 | 24시간 이내 답변</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-purple-500">
+                            <i class="fa-solid fa-chart-line text-purple-400"></i>
+                            <div>
+                                <p class="text-white font-medium">실무 적용 오픈톡방 피드백</p>
+                                <p class="text-xs text-gray-500">3개월간 상시 운영 | 상황별 실시간 코칭</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-purple-500">
+                            <i class="fa-solid fa-users-rectangle text-purple-400"></i>
+                            <div>
+                                <p class="text-white font-medium">수료생 전용 커뮤니티</p>
+                                <p class="text-xs text-gray-500">비공개 채널 | 네트워킹 & 정보 공유</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-purple-500">
+                            <i class="fa-solid fa-book-open text-purple-400"></i>
+                            <div>
+                                <p class="text-white font-medium">평생 자료 접근권</p>
+                                <p class="text-xs text-gray-500">모든 워크북 & 체크리스트 영구 제공</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-white/5 rounded-xl border-l-2 border-purple-500">
+                            <i class="fa-solid fa-ticket text-purple-400"></i>
+                            <div>
+                                <p class="text-white font-medium">재수강 할인 혜택</p>
+                                <p class="text-xs text-gray-500">다음 기수 50% 할인 | 복습 기회</p>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SECTION: Class Photos Carousel -->
+    <!-- ========================================= -->
+    <section class="section-padding bg-[#0a0a0a]">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-gray-400 font-bold tracking-widest uppercase text-sm">REAL CLASS</span>
+                <h2 class="text-3xl md:text-4xl font-black mt-4 text-gray-100">
+                    실제 <span class="gold-gradient">수업 현장</span>
+                </h2>
+                <p class="text-gray-500 mt-3">이론과 실전을 넘나드는 집중 트레이닝</p>
+            </div>
+
+            <!-- Photo Carousel -->
+            <div class="relative group max-w-4xl mx-auto">
+                <!-- Carousel Container -->
+                <div class="relative overflow-hidden rounded-[2.5rem] bg-black/40 border border-white/10"
+                    id="classPhotoCarousel">
+                    <div class="flex transition-transform duration-700 ease-in-out" id="classPhotoTrack"
+                        style="transform: translateX(0%); min-height: 500px;">
+                        <!-- Slides -->
+                        <div class="min-w-full flex-shrink-0 flex flex-col items-center justify-center p-2">
+                            <img src="images/class_photo_1.png" alt="이론 수업 현장"
+                                class="w-full h-[500px] md:h-[750px] object-cover rounded-[2rem] shadow-2xl mx-auto"
+                                draggable="false">
+                            <p class="text-center text-gray-400 text-sm mt-4 font-medium"><i
+                                    class="fa-solid fa-graduation-cap text-red-500 mr-2"></i>이론 수업 & 피드백 세션</p>
+                        </div>
+                        <div class="min-w-full flex-shrink-0 flex flex-col items-center justify-center p-2">
+                            <img src="images/class_photo_3.png" alt="실전 대기 현장"
+                                class="w-full h-[500px] md:h-[750px] object-cover rounded-[2rem] shadow-2xl mx-auto"
+                                draggable="false">
+                            <p class="text-center text-gray-400 text-sm mt-4 font-medium"><i
+                                    class="fa-solid fa-users text-red-500 mr-2"></i>실전 투입 전 브리핑</p>
+                        </div>
+                        <div class="min-w-full flex-shrink-0 flex flex-col items-center justify-center p-2">
+                            <img src="images/class_photo_4.png" alt="실전 성과"
+                                class="w-full h-[500px] md:h-[750px] object-cover rounded-[2rem] shadow-2xl mx-auto"
+                                draggable="false">
+                            <p class="text-center text-gray-400 text-sm mt-4 font-medium"><i
+                                    class="fa-solid fa-heart text-red-500 mr-2"></i>실전 투입 성과</p>
+                        </div>
+                        <div class="min-w-full flex-shrink-0 flex flex-col items-center justify-center p-2">
+                            <img src="images/class_photo_5.png" alt="실전 방중술 수업"
+                                class="w-full h-[500px] md:h-[750px] object-cover rounded-[2rem] shadow-2xl mx-auto"
+                                draggable="false">
+                            <p class="text-center text-gray-400 text-sm mt-4 font-medium"><i
+                                    class="fa-solid fa-bed text-red-500 mr-2"></i>실전 방중술 수업</p>
+                        </div>
+                        <div class="min-w-full flex-shrink-0 flex flex-col items-center justify-center p-2">
+                            <img src="images/class_photo_6.png" alt="소셜 파티 수업"
+                                class="w-full h-[500px] md:h-[750px] object-cover rounded-[2rem] shadow-2xl mx-auto"
+                                draggable="false">
+                            <p class="text-center text-gray-400 text-sm mt-4 font-medium"><i
+                                    class="fa-solid fa-champagne-glasses text-red-500 mr-2"></i>소셜 파티 수업</p>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Arrows -->
+                    <button onclick="moveClassPhoto(-1)"
+                        class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 text-white hover:bg-red-500 transition-all flex items-center justify-center z-20 opacity-0 group-hover:opacity-100">
+                        <i class="fa-solid fa-chevron-left text-xl"></i>
+                    </button>
+                    <button onclick="moveClassPhoto(1)"
+                        class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 text-white hover:bg-red-500 transition-all flex items-center justify-center z-20 opacity-0 group-hover:opacity-100">
+                        <i class="fa-solid fa-chevron-right text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Dots -->
+                <div class="flex justify-center gap-3 mt-8">
+                    <button onclick="goToClassPhoto(0)"
+                        class="class-photo-dot w-3 h-3 rounded-full bg-red-600 hover:scale-125 transition-all shadow-glow"></button>
+                    <button onclick="goToClassPhoto(1)"
+                        class="class-photo-dot w-3 h-3 rounded-full bg-gray-600 hover:scale-125 transition-all"></button>
+                    <button onclick="goToClassPhoto(2)"
+                        class="class-photo-dot w-3 h-3 rounded-full bg-gray-600 hover:scale-125 transition-all"></button>
+                    <button onclick="goToClassPhoto(3)"
+                        class="class-photo-dot w-3 h-3 rounded-full bg-gray-600 hover:scale-125 transition-all"></button>
+                    <button onclick="goToClassPhoto(4)"
+                        class="class-photo-dot w-3 h-3 rounded-full bg-gray-600 hover:scale-125 transition-all"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let classPhotoSlide = 0;
+        const classPhotoTotal = 5;
+
+        function moveClassPhoto(direction) {
+            classPhotoSlide = (classPhotoSlide + direction + classPhotoTotal) % classPhotoTotal;
+            updateClassPhotoCarousel();
+        }
+
+        function goToClassPhoto(index) {
+            classPhotoSlide = index;
+            updateClassPhotoCarousel();
+        }
+
+        function updateClassPhotoCarousel() {
+            const track = document.getElementById('classPhotoTrack');
+            if (track) {
+                track.style.transform = `translateX(-${classPhotoSlide * 100}%)`;
+            }
+
+            // Update dots
+            const dots = document.querySelectorAll('.class-photo-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('bg-red-500', index === classPhotoSlide);
+                dot.classList.toggle('bg-gray-600', index !== classPhotoSlide);
+            });
+        }
+
+        // Auto-advance class photos every 5 seconds
+        setInterval(() => moveClassPhoto(1), 5000);
+    </script>
+
+
+    <!-- ========================================= -->
+    <!-- SECTION 5.5: COURSE OVERVIEW (What You Get) -->
+    <!-- ========================================= -->
+    <section class="section-padding bg-black">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-gray-400 font-bold tracking-widest uppercase text-sm">WHAT YOU GET</span>
+                <h2 class="text-3xl md:text-5xl font-black mt-4 text-gray-100">
+                    해탈코스는 <span class="gold-gradient">이런 수업</span>입니다
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1: 3-Day Intensity -->
+                <div
+                    class="glass p-6 rounded-3xl text-center border border-white/5 hover:border-red-600/30 transition group">
+                    <div
+                        class="w-16 h-16 rounded-2xl gold-bg flex items-center justify-center text-black text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-lg mb-2">3일 실전 몰입</h4>
+                    <p class="text-gray-400 text-sm">72시간 동안 진행되는 압도적 밀도의 대면 교육. 이론부터 현장 실습까지 논스톱 진행.</p>
+                </div>
+                <!-- Card 2: Curriculum -->
+                <div
+                    class="glass p-6 rounded-3xl text-center border border-white/5 hover:border-red-600/30 transition group">
+                    <div
+                        class="w-16 h-16 rounded-2xl gold-bg flex items-center justify-center text-black text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-lg mb-2">25개+ 핵심 모듈</h4>
+                    <p class="text-gray-400 text-sm">자의식 해체부터 실전 어프로치, 폰게임까지 연애의 모든 단계를 설계한 알고리즘.</p>
+                </div>
+                <!-- Card 3: Feedback -->
+                <div
+                    class="glass p-6 rounded-3xl text-center border border-white/5 hover:border-red-600/30 transition group">
+                    <div
+                        class="w-16 h-16 rounded-2xl gold-bg flex items-center justify-center text-black text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-lg mb-2">오픈톡방 실시간 피드백</h4>
+                    <p class="text-gray-400 text-sm">1:1 형식에서 벗어나 오픈채팅방에서 이든의 직접 피드백과 상황별 실시간 코칭 제공.</p>
+                </div>
+                <!-- Card 4: Community -->
+                <div
+                    class="glass p-6 rounded-3xl text-center border border-white/5 hover:border-red-600/30 transition group">
+                    <div
+                        class="w-16 h-16 rounded-2xl gold-bg flex items-center justify-center text-black text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-users-rays"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-lg mb-2">평생 동료 커뮤니티</h4>
+                    <p class="text-gray-400 text-sm">수강 완료 후에도 지속적인 성장을 위해 동료들과 데이터를 공유하고 함께 성장하는 공간.</p>
+                </div>
+            </div>
+
+            <!-- Bonus Banner -->
+            <div
+                class="mt-12 glass p-8 rounded-3xl border border-red-600/30 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-14 h-14 rounded-full bg-red-500/20 flex items-center justify-center text-red-500 text-2xl shrink-0">
+                        <i class="fa-solid fa-gift"></i>
+                    </div>
+                    <div>
+                        <p class="text-red-500 font-bold text-lg">이번 기수 특별 보너스</p>
+                        <p class="text-gray-400 text-sm">신청 시 '카카오톡 대화 템플릿 50선' PDF 무료 증정</p>
+                    </div>
+                </div>
+                <a href="#contact"
+                    class="gold-bg text-black px-8 py-3 rounded-full font-bold hover:scale-105 transition-transform shrink-0">
+                    지금 신청하기
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SECTION 6: SUCCESS (SB7: Success / AARRR: Referral - Social Proof) -->
+    <!-- ========================================= -->
+    <section class="section-padding bg-black relative overflow-hidden">
+        <div
+            class="absolute top-1/2 left-0 w-[600px] h-[600px] bg-yellow-900/10 rounded-full blur-[150px] -translate-y-1/2">
+        </div>
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-green-500 font-bold tracking-widest uppercase text-sm">SUCCESS STORIES</span>
+                <h2 class="text-3xl md:text-5xl font-black mt-4 text-gray-100">
+                    그들은 <span class="gold-gradient">해탈</span>했습니다.
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card glass p-8 rounded-3xl">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold">
+                            J</div>
+                        <div>
+                            <p class="font-bold text-white">J님 (32세, 직장인)</p>
+                            <p class="text-xs text-gray-500">수강 후 3개월</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed italic">
+                        "30년 인생 처음으로 여자가 먼저 '오빠 술 마실래?'라는 연락을 해왔습니다. 제가 달라진 게 아니라, <span
+                            class="text-red-500 font-bold">표현 방식</span>만 바꿨을 뿐인데요."
+                    </p>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card glass p-8 rounded-3xl">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center text-white font-bold">
+                            K</div>
+                        <div>
+                            <p class="font-bold text-white">K님 (28세, 대학원생)</p>
+                            <p class="text-xs text-gray-500">수강 후 6개월</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed italic">
+                        "예전엔 이상형이 나타나도 한 마디 못 하고 지나갔습니다. 지금은 클럽에서 <span class="text-red-500 font-bold">번호 5개 따는
+                            게</span> 기본이 됐습니다. 진짜 세상이 달라 보입니다."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SECTION 7: CTA (AIDA: Action / AARRR: Revenue) -->
+    <!-- ========================================= -->
+    <section id="contact" class="section-padding relative bg-gradient-to-b from-black to-[#0f0f0f]">
+        <div
+            class="max-w-3xl mx-auto glass p-10 md:p-16 rounded-[40px] text-center border border-red-600/30 relative overflow-hidden">
+            <div class="absolute -top-20 -right-20 w-60 h-60 gold-bg opacity-10 rounded-full blur-3xl"></div>
+
+            <!-- Urgency -->
+            <div
+                class="inline-flex items-center gap-2 bg-red-600/20 text-red-400 px-4 py-2 rounded-full text-sm font-bold mb-6">
+                <i class="fa-solid fa-clock"></i>
+                <span>2월 기수 마감까지 <span id="countdown" class="font-mono">7일</span></span>
+            </div>
+
+            <h2 class="text-3xl md:text-5xl font-black mb-6">
+                더 이상 거절당하는 것에<br>
+                <span class="gold-gradient">익숙해지지 마십시오.</span>
+            </h2>
+            <!-- FAQ Section -->
+            <div class="mt-20 max-w-3xl mx-auto text-left">
+                <div class="text-center mb-10">
+                    <span class="text-red-500 font-bold tracking-widest uppercase text-sm">FAQ</span>
+                    <h3 class="text-2xl md:text-3xl font-black mt-2 text-gray-100 italic">"자주 묻는 질문"</h3>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Q1 -->
+                    <details class="group glass p-2 rounded-2xl border border-white/5 overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer list-none hover:bg-white/5 transition">
+                            <span class="text-lg font-bold text-gray-200"><span class="text-red-500 mr-2">Q.</span>수업은
+                                언제, 어디서 진행되나요?</span>
+                            <i
+                                class="fa-solid fa-chevron-down text-gray-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="p-4 pt-0 text-gray-400 leading-relaxed border-t border-white/5 mt-2 transition-all">
+                            해탈코스는 **금/토/일 (3일)** 동안 밀도 높게 진행됩니다. 실습 위주 수업 특성상 구체적인 집결 장소는 수강 확정 인원에게만 개별 공지됩니다. (주로
+                            강남/홍대 인근 실전 필드에서 진행됩니다)
+                        </div>
+                    </details>
+
+                    <!-- Q2 -->
+                    <details class="group glass p-2 rounded-2xl border border-white/5 overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer list-none hover:bg-white/5 transition">
+                            <span class="text-lg font-bold text-gray-200"><span class="text-red-500 mr-2">Q.</span>연애
+                                초보나 모태솔로도 참여 가능한가요?</span>
+                            <i
+                                class="fa-solid fa-chevron-down text-gray-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="p-4 pt-0 text-gray-400 leading-relaxed border-t border-white/5 mt-2">
+                            당연합니다. 오히려 잘못된 습관이 고착되지 않은 분들이 자의식 해체와 메커니즘 습득 속도가 훨씬 빠릅니다. 백지 상태에서 가장 순수한 '매력'을 설계해
+                            드립니다.
+                        </div>
+                    </details>
+
+                    <!-- Q3 -->
+                    <details class="group glass p-2 rounded-2xl border border-white/5 overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer list-none hover:bg-white/5 transition">
+                            <span class="text-lg font-bold text-gray-200"><span
+                                    class="text-red-500 mr-2">Q.</span>199만원이라는
+                                금액을 지불할 가치가 있을까요?</span>
+                            <i
+                                class="fa-solid fa-chevron-down text-gray-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="p-4 pt-0 text-gray-400 leading-relaxed border-t border-white/5 mt-2">
+                            72시간의 초밀착 케어, 수천 건의 데이터가 집약된 솔루션, 그리고 평생의 연애 지능을 바꾸는 투자는 당신의 인생 전체를 놓고 볼 때 가장 효율적인 지출이
+                            될 것입니다.
+                        </div>
+                    </details>
+
+                    <!-- Q4 -->
+                    <details class="group glass p-2 rounded-2xl border border-white/5 overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer list-none hover:bg-white/5 transition">
+                            <span class="text-lg font-bold text-gray-200"><span class="text-red-500 mr-2">Q.</span>신상
+                                노출이 걱정되는데, 익명이 보장되나요?</span>
+                            <i
+                                class="fa-solid fa-chevron-down text-gray-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="p-4 pt-0 text-gray-400 leading-relaxed border-t border-white/5 mt-2">
+                            네, 모든 수강 정보는 철저히 비밀로 유지됩니다. 수업 중 촬영된 사진이나 영상은 피드백 목적 외에 사용되지 않으며, 대외 노출 시에는 반드시 얼굴 모자이크
+                            및 가명 처리를 원칙으로 합니다.
+                        </div>
+                    </details>
+
+                    <!-- Q5 -->
+                    <details class="group glass p-2 rounded-2xl border border-white/5 overflow-hidden">
+                        <summary
+                            class="flex items-center justify-between p-4 cursor-pointer list-none hover:bg-white/5 transition">
+                            <span class="text-lg font-bold text-gray-200"><span class="text-red-500 mr-2">Q.</span>3일
+                                수업이 끝난 후에는 어떻게 관리해주나요?</span>
+                            <i
+                                class="fa-solid fa-chevron-down text-gray-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="p-4 pt-0 text-gray-400 leading-relaxed border-t border-white/5 mt-2">
+                            수료 후에도 **90일간 전용 오픈톡방**을 통해 실전 상황에 대한 프레딕&노바의 실시간 피드백을 받을 수 있습니다. 배운 내용을 완전히 자신의 것으로
+                            만들 때까지 끝까지 책임집니다.
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div class="mt-20">
+                <i class="fa-solid fa-angles-down text-red-500 animate-bounce text-2xl"></i>
+            </div>
+            <p class="text-gray-400 mb-10 text-lg">
+                지금 당신의 선택이 다음 주말의 '영수증'이 될지,<br>
+                그녀와의 '추억'이 될지를 결정합니다.
+            </p>
+
+            <form id="consultationForm" class="space-y-4 text-left relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" placeholder="성함" required
+                        class="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-red-500 transition">
+                    <input type="tel" placeholder="연락처" required
+                        class="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-red-500 transition">
+                </div>
+                <textarea placeholder="현재 겪고 있는 어려움을 간단히 적어주세요 (선택)" rows="3"
+                    class="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-red-500 transition resize-none"></textarea>
+                <button type="submit"
+                    class="w-full gold-bg text-black font-bold py-5 rounded-xl text-xl hover:brightness-110 transition shadow-xl mt-4 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    해탈코스 신청하기
+                </button>
+                <p class="text-center text-xs text-gray-600 mt-4">
+                    <i class="fa-solid fa-lock mr-1"></i>입력하신 정보는 상담 목적 외에 사용되지 않습니다.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center text-gray-600 text-sm border-t border-white/5">
+        <p>&copy; 2024 해탈코스(Hetal Course). All rights reserved.</p>
+        <p class="mt-2 text-gray-700 text-xs">이 페이지는 마케팅 목적으로 제작되었습니다.</p>
+    </footer>
+
+    <script>
+        // Carousel Logic
+        let currentSlide = 0;
+        const track = document.getElementById('carouselTrack');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = 3;
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) dot.classList.add('active');
+                else dot.classList.remove('active');
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Auto slide every 5 seconds
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }, 5000);
+
+        // Testimonial Carousel
+        const testimonialTrack = document.getElementById('carouselTrack');
+        const testimonialPrevBtn = document.getElementById('prevBtn');
+        const testimonialNextBtn = document.getElementById('nextBtn');
+        const testimonialDots = document.querySelectorAll('.carousel-dot');
+        let testimonialIndex = 0;
+        const testimonialTotal = 8;
+
+        function updateTestimonialCarousel() {
+            testimonialTrack.style.transform = `translateX(-${testimonialIndex * 100}%)`;
+            testimonialDots.forEach((dot, i) => {
+                dot.classList.toggle('bg-red-500', i === testimonialIndex);
+                dot.classList.toggle('bg-gray-600', i !== testimonialIndex);
+            });
+        }
+
+        testimonialPrevBtn.addEventListener('click', () => {
+            testimonialIndex = (testimonialIndex - 1 + testimonialTotal) % testimonialTotal;
+            updateTestimonialCarousel();
+        });
+
+        testimonialNextBtn.addEventListener('click', () => {
+            testimonialIndex = (testimonialIndex + 1) % testimonialTotal;
+            updateTestimonialCarousel();
+        });
+
+        testimonialDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                testimonialIndex = parseInt(dot.dataset.index);
+                updateTestimonialCarousel();
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form Submission
+        document.getElementById('consultationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const messageBox = document.createElement('div');
+            messageBox.className = 'fixed top-10 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-8 py-4 rounded-full font-bold shadow-2xl z-50 flex items-center gap-3';
+            messageBox.innerHTML = '<i class="fa-solid fa-circle-check"></i> 해탈코스 상담 신청이 완료되었습니다!';
+            document.body.appendChild(messageBox);
+            this.reset();
+            setTimeout(() => { messageBox.remove(); }, 4000);
+        });
+    </script>
+</body>
+
+</html>
