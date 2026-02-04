@@ -147,19 +147,22 @@
                 여자는 왜<br class="md:hidden">
                 <span class="gold-gradient">매번 실패할까요?</span>"
             </h1>
-            <p class="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed max-w-2xl mx-auto">
-                <span class="text-red-500 font-bold">72시간</span> 안에 당신은<br class="md:hidden">
+            <!-- Subcopy: Hidden on mobile, visible on desktop -->
+            <p class="hidden md:block text-lg md:text-xl text-gray-400 mb-10 leading-relaxed max-w-2xl mx-auto">
+                <span class="text-red-500 font-bold">72시간</span> 안에 당신은
                 "<span class="text-white font-medium">최상위 유혹자</span>"로 리셋됩니다.<br>
-                여자는 노력하는 남자가 아닌<br class="md:hidden">
+                여자는 노력하는 남자가 아닌
                 <span class="text-red-500 font-bold">매력적인 남자</span>를 선택합니다.
             </p>
+            <!-- Mobile: Single CTA only -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#contact"
                     class="gold-bg text-black px-10 py-5 rounded-full font-bold text-xl hover:scale-105 transition-transform inline-block shadow-lg shadow-yellow-900/30">
                     <i class="fa-solid fa-bolt mr-2"></i>지금 바로 신청하기
                 </a>
+                <!-- Secondary CTA: Hidden on mobile -->
                 <a href="#problem"
-                    class="border border-white/20 text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-white/5 transition inline-block">
+                    class="hidden md:inline-block border border-white/20 text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-white/5 transition">
                     왜 나는 실패할까?
                 </a>
             </div>
@@ -192,9 +195,9 @@
                     <p class="text-gray-500 text-sm leading-relaxed">5분마다 카톡을 확인하지만<br class="hidden md:inline">숫자 1은
                         지워지지 않습니다.</p>
                 </div>
-                <!-- External 2 -->
+                <!-- External 2 (Hidden on mobile) -->
                 <div
-                    class="glass p-6 rounded-3xl text-center border border-white/5 hover:border-red-600/30 transition flex flex-col items-center min-h-[200px]">
+                    class="hidden md:flex glass p-6 rounded-3xl text-center border border-white/5 hover:border-red-600/30 transition flex-col items-center min-h-[200px]">
                     <i class="fa-solid fa-hand text-3xl mb-4 text-red-500/70"></i>
                     <h4 class="text-base font-bold text-gray-200 mb-2">애프터 거절</h4>
                     <p class="text-gray-500 text-sm leading-relaxed">"나중에 봐요", "바빠서요"<br class="hidden md:inline">라는 말만
@@ -208,9 +211,9 @@
                     <p class="text-gray-500 text-sm leading-relaxed">"오빠는 진짜 좋은 사람인데...<br class="hidden md:inline">남자로는
                         안 보여요"</p>
                 </div>
-                <!-- External 4 -->
+                <!-- External 4 (Hidden on mobile) -->
                 <div
-                    class="glass p-6 rounded-3xl text-center border border-white/5 hover:border-red-600/30 transition flex flex-col items-center min-h-[200px]">
+                    class="hidden md:flex glass p-6 rounded-3xl text-center border border-white/5 hover:border-red-600/30 transition flex-col items-center min-h-[200px]">
                     <i class="fa-solid fa-hand-holding-heart text-3xl mb-4 text-red-500/70"></i>
                     <h4 class="text-base font-bold text-gray-200 mb-2">스킨십 거절</h4>
                     <p class="text-gray-500 text-sm leading-relaxed">어깨에 손을 올리는 순간<br class="hidden md:inline">"우리는 너무
@@ -354,8 +357,8 @@
             <div class="w-24 h-px bg-gradient-to-r from-transparent via-gray-500/50 to-transparent mx-auto mb-16">
             </div>
 
-            <!-- Misconception -->
-            <div class="mb-16 space-y-4">
+            <!-- Misconception (Hidden on mobile) -->
+            <div class="hidden md:block mb-16 space-y-4">
                 <p class="text-xl md:text-2xl text-gray-400 leading-relaxed">
                     사람들은 생각합니다.
                 </p>
@@ -385,8 +388,9 @@
                 </p>
             </div>
 
-            <!-- Personal Story -->
-            <div class="bg-gray-800/60 rounded-2xl p-6 mb-16 max-w-xl mx-auto border border-gray-700/50">
+            <!-- Personal Story (Hidden on mobile) -->
+            <div
+                class="hidden md:block bg-gray-800/60 rounded-2xl p-6 mb-16 max-w-xl mx-auto border border-gray-700/50">
                 <p class="text-sm md:text-base text-gray-400 leading-relaxed text-left">
                     저희 또한 유혹의 원리를 깨닫기 전까지는 타고난 사람만 할 수 있다고 믿었습니다.
                     그런 저희가 매력적이고 이성에게 선택받는 사람이 되기까지의 모든 여정,
